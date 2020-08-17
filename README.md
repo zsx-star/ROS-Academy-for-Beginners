@@ -44,7 +44,7 @@
 1. 克隆或下载ROS-Academy-for-Beginners教学包到工作空间的`/src`目录下，例如 `~/catkin_ws/src`
 ```sh
 $ cd ~/catkin_ws/src
-$ git clone https://github.com/DroidAITech/ROS-Academy-for-Beginners.git
+$ git clone -b melodic https://github.com/DroidAITech/ROS-Academy-for-Beginners.git
 ```
 
 2. 安装教学包所需的依赖
