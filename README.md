@@ -39,7 +39,7 @@
 
 ---
 
-## 下载和编译
+## 下载编译和运行
 
 1. 克隆或下载ROS-Academy-for-Beginners教学包到工作空间的`/src`目录下，例如 `~/catkin_ws/src`
 ```sh
@@ -59,20 +59,16 @@ $ catkin_make
 $ source ~/catkin_ws/devel/setup.bash
 ```
 
-4. 运行示例
+4. 升级gazebo
 
----
-## 运行须知
+(1). 建议在**本地Ubuntu 18.04**下运行仿真程序。目前Gazebo模拟器的**兼容性**是一大问题，在虚拟机或配置较低的电脑上可能无法运行。**如果你的显卡是N卡，建议安装Ubuntu下的显卡驱动**。
 
-1. 建议在**本地Ubuntu 16.04**下运行仿真程序。目前Gazebo模拟器的**兼容性**是一大问题，在虚拟机或配置较低的电脑上可能无法运行。**如果你的显卡是N卡，建议安装Ubuntu下的显卡驱动**。
+(2). 运行Gazebo仿真程序`robot_sim_demo`前，请将Gazebo升级到9.x版本以上（**推荐9.14版本**）。
 
-2. 运行Gazebo仿真程序`robot_sim_demo`前，请将Gazebo升级到7.x版本以上（**推荐7.9版本**）。
-
-3. 如果本地是**Ubuntu18.04**,那么建议升级gazebo版本到9.10.方法类似下步骤.修改对应版本号为gazebo9.
 
   查看Gazebo版本方法
   ```sh
-  $ gazebo -v   #确认7.0以上，推荐7.9
+  $ gazebo -v   #确认9.0以上，推荐9.14
   ```
 
   升级方法
@@ -81,12 +77,22 @@ $ source ~/catkin_ws/devel/setup.bash
   $ sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
   $ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
   $ sudo apt-get update
-  $ sudo apt-get install gazebo7
+  $ sudo apt-get install gazebo9
   ```
 
-3. 确保所有依赖都已安装，如`gazebo_ros`, `gmapping`, `slam_karto`, `amcl`。
+系统更新
 
+  ```sh
+  $ sudo apt-get update && upgrade #需要执行，否则环境启动可能存在问题
+  ```
 
+(3). 确保所有依赖都已安装，如`gazebo_ros`, `gmapping`, `slam_karto`, `amcl`。
+
+5. 启动仿真环境
+
+```
+roslaunch robot_sim_demo robot_spawn.launch
+```
 
 ---
 ## Copyright
